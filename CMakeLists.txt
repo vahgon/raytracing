@@ -9,24 +9,18 @@ project(
 
 set(CMAKE_CXX_STANDARD 26)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+
+add_library(raytracing_lib INTERFACE)
+
+target_include_directories(raytracing_lib INTERFACE ${CMAKE_SOURCE_DIR}/include)
 
 add_executable(raytracing ${CMAKE_SOURCE_DIR}/src/main.cpp)
 
-target_include_directories(raytracing
-        PRIVATE ${CMAKE_SOURCE_DIR}/src
-        PUBLIC ${CMAKE_SOURCE_DIR}/include
-)
-
+target_link_libraries(raytracing PUBLIC raytracing_lib)
 target_compile_features(raytracing PRIVATE cxx_std_26)
-
-target_compile_options(raytracing PRIVATE
-        -Wall -Wextra -Wpedantic -freflection
+target_compile_options(raytracing PRIVATE -Wall -Wextra -Wpedantic -freflection
         $<$<CONFIG:DEBUG>:-Wconversion -Wsign-conversion -Wnrvo -g -O0>
         $<$<CONFIG:RELEASE>:-O3>
 )
-
-target_link_options(raytracing PRIVATE
-        $<$<CONFIG:DEBUG>:-fsanitize=address,undefined,leak>
-)
+target_link_options(raytracing PRIVATE $<$<CONFIG:DEBUG>:-fsanitize=address,undefined,leak>)
