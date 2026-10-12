@@ -39,7 +39,7 @@ IncludeCategories:
 
 # access mods
 AccessModifierOffset: -1
-EmptyLineBeforeAccessModifier: Never
+EmptyLineBeforeAccessModifier: LogicalBlock
 EmptyLineAfterAccessModifier: Never
 
 # single line formatting
@@ -146,9 +146,9 @@ AlignEscapedNewlines: Left
 AlignOperands: Align
 AlignAfterOpenBracket: true
 AlignConsecutiveAssignments:
-  Enabled: true
+  Enabled: false
   AcrossEmptyLines: false
-  AcrossComments: true
+  AcrossComments: false
   AlignCompound: false
   AlignFunctionDeclarations: false
   AlignFunctionPointers: false

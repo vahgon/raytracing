@@ -60,6 +60,7 @@ cert-msc50-cpp,
 cert-msc51-cpp,
 cert-str34-c,
 cppcoreguidelines-interfaces-global-init,
+cppcoreguidelines-missing-std-forward,
 cppcoreguidelines-narrowing-conversions,
 cppcoreguidelines-pro-type-member-init,
 cppcoreguidelines-pro-type-static-cast-downcast,
@@ -72,6 +73,7 @@ google-runtime-int,
 google-runtime-operator,
 hicpp-exception-baseclass,
 hicpp-multiway-paths-covered,
+hicpp-special-member-functions,
 misc-misplaced-const,
 misc-new-delete-overloads,
 misc-non-copyable-objects,
@@ -96,6 +98,8 @@ modernize-shrink-to-fit,
 modernize-unary-static-assert,
 modernize-use-auto,
 modernize-use-bool-literals,
+modernize-use-default-member-init,
+modernize-use-designated-initializers,
 modernize-use-emplace,
 modernize-use-equals-default,
 modernize-use-equals-delete,
@@ -149,6 +153,8 @@ readability-use-anyofallof'
 
 CheckOptions:
   - key: hicpp-special-member-functions.AllowSoleDefaultDtor
+    value: true
+  - key: modernize-deprecated-headers.CheckHeaderFile
     value: true
 
 WarningsAsErrors: '*'
