@@ -2,5 +2,7 @@
 bin/
 build/
 cmake-build-*/
+.idea/
+image.ppm
 Session.vim
 compile_commands.json
